@@ -6,7 +6,6 @@
 ![License](https://img.shields.io/github/license/fundrik/coding-standard)
 ![Packagist](https://img.shields.io/packagist/v/fundrik/coding-standard)
 ![PHP Version](https://img.shields.io/badge/PHP-8.3+-blue)
-![PHPUnit](https://img.shields.io/badge/PHPUnit-100%25%20coverage-brightgreen)
 
 Fundrik Coding Standard combines WordPress Coding Standards, PHPCompatibilityWP, and selected Slevomat Coding Standard rules with Fundrik-specific sniffs. It is intended for Fundrik projects and other modern PHP 8.3+ WordPress codebases that want the same conventions.
 
