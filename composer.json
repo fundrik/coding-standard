@@ -1,0 +1,62 @@
+{
+	"name": "fundrik/coding-standard",
+	"description": "Custom PHP_CodeSniffer rules for Fundrik",
+	"keywords": [
+		"phpcs",
+		"standards",
+		"static analysis",
+		"Fundrik"
+	],
+	"homepage": "https://fundrik.ru",
+	"type": "phpcodesniffer-standard",
+	"license": "MIT",
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"authors": [
+		{
+			"name": "Denis Yanchevskiy",
+			"email": "denis@denisco.pro"
+		}
+	],
+	"support": {
+		"email": "denis@denisco.pro",
+		"issues": "https://github.com/fundrik/coding-standard/issues",
+		"source": "https://github.com/fundrik/coding-standard"
+	},
+	"require": {
+		"php": "^8.3",
+		"phpcompatibility/phpcompatibility-wp": "^3.0@dev",
+		"slevomat/coding-standard": "^8.22",
+		"wp-coding-standards/wpcs": "^3.4"
+	},
+	"require-dev": {
+		"dealerdirect/phpcodesniffer-composer-installer": "^1.2",
+		"phpunit/phpunit": "^12.5",
+		"rector/rector": "^2.6"
+	},
+	"autoload": {
+		"psr-4": {
+			"FundrikStandard\\": "FundrikStandard/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"FundrikStandard\\Tests\\": "tests/"
+		},
+		"exclude-from-classmap": [
+			"tests/**/*.inc"
+		]
+	},
+	"scripts": {
+		"lint": "vendor/bin/phpcs .",
+		"lint:fix": "vendor/bin/phpcbf .",
+		"test": "vendor/bin/phpunit",
+		"test:coverage": "php -d xdebug.mode=coverage vendor/bin/phpunit --coverage-html=.tmp/phpunit/report-coverage",
+		"rector": "vendor/bin/rector process"
+	},
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
+	}
+}
