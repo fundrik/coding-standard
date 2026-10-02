@@ -17,6 +17,7 @@ jobs:
       - uses: shivammathur/setup-php@v2
         with:
           php-version: '8.3'
+          coverage: pcov
 
       - uses: actions/cache@v6
         with:
@@ -25,10 +26,5 @@ jobs:
           restore-keys: |
             composer-${{ runner.os }}-
 
-      - run: composer validate --strict
-      - run: composer audit --locked
       - run: composer install --prefer-dist --no-interaction --no-progress
-      - run: composer dump-autoload --optimize --strict-psr --dry-run
-      - run: composer run lint
-      - run: composer run rector -- --dry-run
-      - run: composer run test -- --order-by=random
+      - run: composer run release-checks

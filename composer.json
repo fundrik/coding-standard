@@ -48,6 +48,23 @@
 		]
 	},
 	"scripts": {
+		"checks": [
+			"@composer-checks",
+			"@lint",
+			"@rector --dry-run",
+			"@test"
+		],
+		"release-checks": [
+			"@composer-checks",
+			"@lint",
+			"@rector --dry-run",
+			"@test --order-by=random --coverage-text"
+		],
+		"composer-checks": [
+			"@composer validate --strict",
+			"@composer audit --locked",
+			"@composer dump-autoload --optimize --strict-psr --dry-run"
+		],
 		"lint": "vendor/bin/phpcs .",
 		"lint:fix": "vendor/bin/phpcbf .",
 		"test": "vendor/bin/phpunit",

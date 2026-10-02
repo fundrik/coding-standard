@@ -94,6 +94,26 @@ The `excludedParentClasses` setting also applies to implemented interfaces where
 
 The Composer scripts are the source of truth for project checks:
 
+Run `checks` for the regular local or pull request verification. It covers the checks required by the checks workflow:
+
+```bash
+composer run checks
+```
+
+Run `release-checks` before creating a release. It covers the checks required by the release-checks workflow, including random test ordering and coverage:
+
+```bash
+composer run release-checks
+```
+
+For a focused subset, run `composer-checks` after changing `composer.json`, `composer.lock`, or Composer autoload configuration. It validates the Composer configuration, dependencies, and autoloading, and is already included in both aggregate workflows:
+
+```bash
+composer run composer-checks
+```
+
+Run individual tools when troubleshooting a specific failure:
+
 ```bash
 composer run lint
 composer run rector -- --dry-run
